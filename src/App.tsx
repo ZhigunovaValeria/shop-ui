@@ -1,14 +1,16 @@
 import './App.css';
-import { ClientsPage } from './pages/client/ui/clientsPage';
-import { GoodsPage } from './pages/good/ui/goodsPage';
-import { ShopsPage } from './pages/shop/ui/shopsPage';
+import { NavLink, Outlet } from 'react-router';
 
 const App = () => {
   return (
     <main className="content">
-      <ClientsPage />
-      <GoodsPage />
-      <ShopsPage />
+      <h1>App</h1>
+      <nav className="navigation" aria-label="Разделы">
+        <NavLink to="/shops">Магазины</NavLink>
+        <NavLink to="/clients">Клиенты</NavLink>
+        <NavLink to="/goods">Товары</NavLink>
+      </nav>
+      <Outlet />
     </main>
   );
 };
