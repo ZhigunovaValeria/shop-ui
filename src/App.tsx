@@ -1,21 +1,30 @@
 import './App.css';
 import { Layout, Menu } from 'antd';
 import { NavLink, Outlet } from 'react-router';
+import { Routings } from './shared/routing/routings';
 
 const { Header, Content, Footer } = Layout;
 
 const menuItems = [
   {
+    key: 'home',
+    label: (
+      <NavLink to={Routings.home.toNavigate()} end>
+        Домой
+      </NavLink>
+    ),
+  },
+  {
     key: 'goods',
-    label: <NavLink to="/goods">Товары</NavLink>,
+    label: <NavLink to={Routings.good.list.toNavigate()}>Товары</NavLink>,
   },
   {
     key: 'clients',
-    label: <NavLink to="/clients">Клиенты</NavLink>,
+    label: <NavLink to={Routings.client.list.toNavigate()}>Клиенты</NavLink>,
   },
   {
     key: 'shops',
-    label: <NavLink to="/shops">Магазины</NavLink>,
+    label: <NavLink to={Routings.shop.list.toNavigate()}>Магазины</NavLink>,
   },
 ];
 
