@@ -1,17 +1,37 @@
 import './App.css';
+import { Layout, Menu } from 'antd';
 import { NavLink, Outlet } from 'react-router';
+
+const { Header, Content, Footer } = Layout;
+
+const menuItems = [
+  {
+    key: 'goods',
+    label: <NavLink to="/goods">Товары</NavLink>,
+  },
+  {
+    key: 'clients',
+    label: <NavLink to="/clients">Клиенты</NavLink>,
+  },
+  {
+    key: 'shops',
+    label: <NavLink to="/shops">Магазины</NavLink>,
+  },
+];
 
 const App = () => {
   return (
-    <main className="content">
-      <h1>App</h1>
-      <nav className="navigation" aria-label="Разделы">
-        <NavLink to="/shops">Магазины</NavLink>
-        <NavLink to="/clients">Клиенты</NavLink>
-        <NavLink to="/goods">Товары</NavLink>
-      </nav>
-      <Outlet />
-    </main>
+    <Layout style={{ height: '100%', width: '100%' }}>
+      <Header>
+        <Menu theme="dark" mode="horizontal" items={menuItems} />
+      </Header>
+      <Content style={{ padding: '24px', backgroundColor: '#fff' }}>
+        <Outlet />
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+        Система мониторинга shop-ui
+      </Footer>
+    </Layout>
   );
 };
 
